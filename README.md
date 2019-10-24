@@ -65,3 +65,39 @@ You can also use Docker to release to Heroku:
 For more information about using Ruby on Heroku, see these Dev Center articles:
 
 - [Ruby on Heroku](https://devcenter.heroku.com/categories/ruby)
+
+## Notes
+
+View logs with:
+
+```sh
+$ heroku logs --tail
+```
+
+View dynos with:
+
+```sh
+$ heroku ps
+```
+
+Scale dynos with:
+
+```sh
+$ heroku ps:scale web=0
+$ heroku ps:scale web=1
+```
+
+## Local Setup
+
+```sh
+$ bundle install
+$ bundle exec rake db:create db:migrate
+$ heroku local web
+```
+
+Visit `http://localhost:5000/`
+
+## Push New Changes
+
+Just commit and push to the `heroku` remote: `git push heroku master`.
+Verify with `heroku open`.
